@@ -288,26 +288,29 @@ export default function App() {
 
   return (
     <div className="container">
-      <YouTube
-        key={video?.id}
-        ref={(playerRef) => {
-          internalPlayerRef.current = playerRef?.getInternalPlayer();
-        }}
-        videoId={video?.id}
-        opts={{
-          width: '1280',
-          height: '720',
-          playerVars: {
-            // https://developers.google.com/youtube/player_parameters
-            autoplay: 1,
-            controls: 0,
-            loop: 0,
-            mute: 1,
-            playsinline: 1,
-            rel: 0,
-          },
-        }}
-      />
+      <div className="controls"></div>
+      <div className="video-container">
+        <YouTube
+          key={video?.id}
+          ref={(playerRef) => {
+            internalPlayerRef.current = playerRef?.getInternalPlayer();
+          }}
+          videoId={video?.id}
+          opts={{
+            width: '100%',
+            height: '100%',
+            playerVars: {
+              // https://developers.google.com/youtube/player_parameters
+              autoplay: 1,
+              controls: 0,
+              loop: 0,
+              mute: 1,
+              playsinline: 1,
+              rel: 0,
+            },
+          }}
+        />
+      </div>
       <div className="overlay" onClick={() => {}}>
         <div className="controls">
           <div
