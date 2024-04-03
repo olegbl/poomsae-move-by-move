@@ -4,7 +4,7 @@ Allows navigating KKW's Poomsae videos (https://www.youtube.com/playlist?list=PL
 
 ## Visiting
 
-https://olegbl.github.io/poomsae/
+https://olegbl.github.io/poomsae-move-by-move/
 
 ## Editing
 
