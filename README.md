@@ -9,8 +9,8 @@ https://olegbl.github.io/poomsae/
 ## Editing
 
 ```
-git clone git@github.com:olegbl/poomsae.git
-cd poomsae
+git clone git@github.com:olegbl/poomsae-move-by-move.git
+cd poomsae-move-by-move
 yarn install
 npm run start
 ```
