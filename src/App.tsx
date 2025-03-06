@@ -4,6 +4,12 @@ import * as React from 'react';
 import YouTube from 'react-youtube';
 import useUrlState from './useUrlState';
 
+type Movement = {
+  start: number;
+  end: number;
+  kihap?: boolean;
+};
+
 const VIDEOS = [
   {
     id: 'WhkjRruCBTo',
@@ -349,7 +355,14 @@ const VIDEOS = [
   },
 ];
 
-function getPoomsae(id: string) {
+function getPoomsae(id: string, movements: Movement[] | null) {
+  if (movements != null) {
+    return {
+      id,
+      label: 'Custom',
+      movements,
+    };
+  }
   return VIDEOS.find((video) => video.id === id);
 }
 
@@ -373,7 +386,9 @@ export default function App() {
     internalPlayerRef.current = null;
   }, []);
 
-  const video = getPoomsae(poomsaeId);
+  const [movements] = useUrlState('movements', null);
+
+  const video = getPoomsae(poomsaeId, movements);
   const movementCount = video?.movements.length ?? 0;
   const movement = video?.movements[movementId] ?? { start: 0, end: 0 };
 
